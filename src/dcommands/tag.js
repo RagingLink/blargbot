@@ -574,7 +574,7 @@ ${command[0].desc}`);
                 case 'info':
                     if (words[2]) title = words[2];
                     if (!title) title = (await bu.awaitQuery(msg, tagNameMsg)).content;
-                    tag = await r.table('tag').get(words[2]).run();
+                    tag = await r.table('tag').get(title).run();
                     if (!tag) {
                         bu.send(msg, `❌ That tag doesn't exist! ❌`);
                         break;
