@@ -1,14 +1,13 @@
 /*
  * @Author: stupid cat
  * @Date: 2017-05-07 18:51:35
- * @Last Modified by: stupid cat
- * @Last Modified time: 2019-08-03 17:43:40
+ * @Last Modified by: RagingLink
+ * @Last Modified time: 2020-07-15 22:58:34
  *
  * This project uses the AGPLv3 license. Please read the license file before using/adapting any of the code.
  */
 
 const Builder = require('../structures/TagBuilder');
-const { distinct } = require('../utils/iterables');
 
 module.exports =
     Builder.APITag('reactlist')
@@ -83,6 +82,6 @@ module.exports =
             if (errors.length > 0)
                 return Builder.util.error(subtag, context, 'Unknown Emoji: ' + errors.join(', '));
             users = users.map(u => u.id);
-            return JSON.stringify([...distinct(users)]);
+            return JSON.stringify(users);
         })
         .build();
